@@ -1,6 +1,6 @@
 # Gerenciador de Tarefas
 
-Este é um projeto moderno de gerenciamento de tarefas desenvolvido em **React**. A aplicação utiliza as melhores práticas de mercado, separando toda a lógica de funcionamento da parte visual através de **Hooks Customizados**.
+Este é um projeto moderno de gerenciamento de tarefas desenvolvido em **React**
 
 ---
 
