@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Tarefa from './components/Tarefas';
 import { useInput } from "./hooks/input";
-import { useTarefas } from "./hooks/lista";
+import { useTarefas, TarefasProvider } from "./components/TarefasProvider";
 
 function ListaTarefas(){
 
@@ -11,15 +11,16 @@ function ListaTarefas(){
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (tarefaInput.valor === '') return;
+        const textoTrim = tarefaInput.valor.trim();
+        if (textoTrim === '') return;
 
-        adicionarTarefa(tarefaInput.valor).then(() => {
+        adicionarTarefa(textoTrim).then(() => {
             tarefaInput.limpar();
         });
     };
 
     return (
-        <main main style={{ padding: '20px', fontFamily: 'sans-serif', minHeight: '100vh', backgroundColor: '#f5f5f5', gap: '20px', display: 'flex',alignItems: 'center', flexDirection: 'column'}}>
+        <main style={{ padding: '20px', fontFamily: 'sans-serif', minHeight: '100vh', backgroundColor: '#f5f5f5', gap: '20px', display: 'flex',alignItems: 'center', flexDirection: 'column'}}>
             <h1>Minhas Tarefas</h1>
 
             <form onSubmit={handleSubmit}>
@@ -62,4 +63,10 @@ function ListaTarefas(){
     );
 }
 
-export default ListaTarefas;
+export default function AppTarefas() {
+    return (
+        <TarefasProvider>
+            <ListaTarefas />
+        </TarefasProvider>
+    )
+}
