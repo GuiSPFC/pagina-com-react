@@ -1,6 +1,9 @@
 import { createRoot } from 'react-dom/client'
-import App from './produtos.jsx'
+import App from './AppTarefas.jsx'
+import { RecoilRoot } from "recoil";
 
 createRoot(document.getElementById('root')).render(
-    <App />
+    <RecoilRoot>
+        <App />
+    </RecoilRoot>
 )
